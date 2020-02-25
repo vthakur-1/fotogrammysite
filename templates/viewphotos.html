@@ -1,0 +1,37 @@
+
+{% block content %}
+<table>
+        <td> # </td>
+
+        <td> photo name </td>
+        <td>photo files</td>
+        <td>add comments</td>
+        <td>view comments</td>
+        <td>like</td>
+
+    <tr>
+        <td> {{photos.id}}</td>
+        <td> {{photos.title}} </td>
+        <td><img src="{{ photos.image.url }}"width="500px"></a></td>
+              <td>  <form method="post" action="{% url 'add-comment' photos.id %}" enctype="multipart/form-data" >
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Submit">
+              </form></td>
+               <td> <table>
+                <td> # </td>
+                <td>username</td>
+                <td>comments</td>
+            <tr>
+                    {% for comment in  comments %}
+                <td> {{comment.id}}</td>
+                <td> {{comment.profile.user.username}} </td>
+                <td>{{comment.comment}}</td>
+                    {% endfor %}
+            </tr>
+        </table></td>
+        <td><a href="{% url 'like' photos.album.profile.id photos.id%}">like</a></td>
+    </tr>
+
+</table>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% block content %}
+{% load account %}
+{% if request.user.is_authenticated %}
+  <li><a href="{% url 'account_logout' %}"> logout</a></li>
+{% endif %}
+<table>
+     {% if request.user.is_anonymous %}
+    <a href="{% url 'signup' %}"> signup</a>
+
+    <a href="{% url 'account_login' %}"> login</a>
+     {% endif %}
+<!--    <a href="{% url 'account_logout' %}"> logout</a>-->
+<a href="{% url 'add-album' %}"> Add Album</a>
+
+<!--    <form role="search" class="navbar-form-custom" action="." >-->
+<!--        {% csrf_token %}-->
+<!--        <div class="form-group">-->
+<!--            <input type="text" placeholder="Search for something..." class="form-control" name="search" id="top-search">-->
+<!--        </div>-->
+<!--    </form>-->
+
+    <div class="navbar-header">
+<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+<form role="search" class="navbar-form-custom">
+<div class="form-group">
+<input type="text" placeholder="Search for something..." class="form-control" name="search" id="searchbar" >
+    <input type="submit" value="search">
+</div>
+</form>
+</div>
+
+
+<!--<form action="" method="post">-->
+<!--    <input type="text"  name="search" placeholder="Search..">-->
+<!--    <input type="button" value="search">-->
+<!--</form>-->
+<table>
+        <td> profile-id </td>
+        <td> album-id </td>
+        <td> photographer</td>
+        <td> album name </td>
+        <td>add photos</td>
+        <td> view album </td>
+{% for photo in photo %}
+    <tr>
+        <td> {{photo.album.profile.id}}</td>
+        <td> {{phto.album.id}}</td>
+        <td> {{photo.album.profile.user.username}} </td>
+        <td> {{photo.album.name}} </td>
+        <td><a href="{% url 'add-photo' photo.album.id%}">add photos</a></td>
+        <td><a href="{% url 'view-photo' photo.id%}">View photos</a></td>
+    </tr>
+{% endfor %}
+</table>
+
+
+{% endblock %}

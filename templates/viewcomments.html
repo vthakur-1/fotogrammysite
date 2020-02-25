@@ -1,0 +1,14 @@
+{% block content %}
+<table>
+        <td> # </td>
+        <td>username</td>
+        <td>comments</td>
+{% for comment in comment %}
+    <tr>
+        <td> {{comment.id}}</td>
+        <td> {{comment.profile.user.username}} </td>
+        <td>{{comment.comment}}</td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}
