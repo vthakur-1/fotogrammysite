@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'allauth',
+    'guardian',
     'allauth.account',
     'allauth.socialaccount',
     'django.contrib.admin',
@@ -56,6 +57,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 AUTHENTICATION_BACKENDS = (
+    'guardian.backends.ObjectPermissionBackend',
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
@@ -130,7 +132,7 @@ ACCOUNT_FORMS = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 

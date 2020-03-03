@@ -12,4 +12,5 @@ urlpatterns = [
     path('album/photo/view/<int:photo_id>/addcomment', views.addcomment, name='add-comment'),
     path('album/<int:album_id>/photo/view/<int:photo_id>/viewcomment', views.viewcomment, name='view-comment'),
     path('album/<int:album_id>/photo/view/<int:photo_id>/like', views.addlike, name='like'),
+    path('album/<int:album_id>/delete', views.deletealbum, name='delete-album'),
 ]

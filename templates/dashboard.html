@@ -40,15 +40,18 @@
         <td> photographer</td>
         <td> album name </td>
         <td>add photos</td>
-        <td> view album </td>
+        <td> view photos </td>
+        <td> delete album </td>
+
 {% for photo in photo %}
     <tr>
         <td> {{photo.album.profile.id}}</td>
-        <td> {{phto.album.id}}</td>
-        <td> {{photo.album.profile.user.username}} </td>
+        <td> {{photo.album.id}}</td>
+        <td> {{photo.album.profile.username}} </td>
         <td> {{photo.album.name}} </td>
         <td><a href="{% url 'add-photo' photo.album.id%}">add photos</a></td>
         <td><a href="{% url 'view-photo' photo.id%}">View photos</a></td>
+         <td><a href="{% url 'delete-album' photo.album.id%}">delete album</a></td>
     </tr>
 {% endfor %}
 </table>

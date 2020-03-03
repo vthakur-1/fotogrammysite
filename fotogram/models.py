@@ -14,7 +14,7 @@ class TimeStamp(models.Model):
 class Profile(TimeStamp, AbstractUser):
     is_customer = models.BooleanField('customer status', default=False)
     is_photographer = models.BooleanField('photographer status', default=False)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='photos')
 
     # def __str__(self):
     #     return self.user.username
@@ -72,3 +72,4 @@ class Like(TimeStamp):
 
     def __str__(self):
         return self.photo
+

@@ -6,7 +6,7 @@
 {% for comment in comment %}
     <tr>
         <td> {{comment.id}}</td>
-        <td> {{comment.profile.user.username}} </td>
+        <td> {{comment.profile.username}} </td>
         <td>{{comment.comment}}</td>
     </tr>
 {% endfor %}
